@@ -10,6 +10,9 @@ processed_covers_directory = os.path.join(cwd, "processed_covers")
 roms_list = os.listdir(roms_directory)
 
 for rom_file in roms_list:
+    if rom_file == 'PLACE_NDS_FILES_HERE':
+        continue
+    
     rom = ndspy.rom.NintendoDSRom.fromFile(os.path.join(roms_directory, rom_file))
     rom_id = rom.idCode.decode('ascii')
     rom_name = rom.name.decode('ascii')
